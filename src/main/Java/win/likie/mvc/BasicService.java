@@ -1,8 +1,8 @@
-package win.likie.mvc.dubbo.service.imp;
+package win.likie.mvc;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import win.likie.mvc.dao.IBasicDao;
@@ -17,7 +17,7 @@ import java.util.List;
  * @param <T>
  */
 public abstract class BasicService<T>  {
-    protected transient final Logger logger = LogManager.getLogger(getClass());
+    protected transient Logger logger = LoggerFactory.getLogger(getClass());
 
     public abstract IBasicDao<T> getDao();
 

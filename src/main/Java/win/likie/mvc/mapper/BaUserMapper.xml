@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.annwz.base.mapper.BaUserMapper">
-  <resultMap id="BaseResultMap" type="top.annwz.base.entity.BaUser">
+<mapper namespace="win.likie.mvc.mapper.BaUserMapper">
+  <resultMap id="BaseResultMap" type="win.likie.mvc.entity.BaUser">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -21,8 +21,8 @@
     user_id, user_name, password, mobile, email, password_change_next, locked, locked_date, 
     face_url, create_time, update_time, create_user_id, update_user_id, email_status
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
     <include refid="Base_Column_List" />
     from ba_user
     where user_id = #{userId,jdbcType=INTEGER}
@@ -31,19 +31,19 @@
     delete from ba_user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="top.annwz.base.entity.BaUser">
-    insert into ba_user (user_id, user_name, password,
-      mobile, email, password_change_next,
-      locked, locked_date, face_url,
-      create_time, update_time, create_user_id,
+  <insert id="insert" parameterType="win.likie.mvc.entity.BaUser">
+    insert into ba_user (user_id, user_name, password, 
+      mobile, email, password_change_next, 
+      locked, locked_date, face_url, 
+      create_time, update_time, create_user_id, 
       update_user_id, email_status)
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{passwordChangeNext,jdbcType=INTEGER},
-      #{locked,jdbcType=INTEGER}, sysdate(), #{faceUrl,jdbcType=VARCHAR},
-      sysdate(), sysdate(), #{createUserId,jdbcType=INTEGER},
-      #{updateUserId,jdbcType=INTEGER},#{emailStatus,jdbcType=INTEGER})
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{passwordChangeNext,jdbcType=INTEGER}, 
+      #{locked,jdbcType=INTEGER}, #{lockedDate,jdbcType=DATE}, #{faceUrl,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, #{createUserId,jdbcType=INTEGER}, 
+      #{updateUserId,jdbcType=INTEGER}, #{emailStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="top.annwz.base.entity.BaUser">
+  <insert id="insertSelective" parameterType="win.likie.mvc.entity.BaUser">
     insert into ba_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -134,7 +134,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="top.annwz.base.entity.BaUser">
+  <update id="updateByPrimaryKeySelective" parameterType="win.likie.mvc.entity.BaUser">
     update ba_user
     <set>
       <if test="userName != null">
@@ -161,8 +161,14 @@
       <if test="faceUrl != null">
         face_url = #{faceUrl,jdbcType=VARCHAR},
       </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=INTEGER},
       </if>
       <if test="updateUserId != null">
         update_user_id = #{updateUserId,jdbcType=INTEGER},
@@ -173,7 +179,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="top.annwz.base.entity.BaUser">
+  <update id="updateByPrimaryKey" parameterType="win.likie.mvc.entity.BaUser">
     update ba_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -183,42 +189,11 @@
       locked = #{locked,jdbcType=INTEGER},
       locked_date = #{lockedDate,jdbcType=DATE},
       face_url = #{faceUrl,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
       update_time = #{updateTime,jdbcType=DATE},
+      create_user_id = #{createUserId,jdbcType=INTEGER},
       update_user_id = #{updateUserId,jdbcType=INTEGER},
       email_status = #{emailStatus,jdbcType=INTEGER}
     where user_id = #{userId,jdbcType=INTEGER}
-  </update>
-  <select id="getsByMap" parameterType="java.util.HashMap" resultMap="BaseResultMap" >
-    select
-    <include refid="Base_Column_List" />
-    from ba_user
-    where 1=1
-    <foreach collection="map.keys" item="_itemKey" open=""  separator="">
-      <if test="null != map[_itemKey]">
-        and ${_itemKey} = #{map[${_itemKey}]}
-      </if>
-    </foreach>
-  </select>
-  <select id="getCountByMap" parameterType="java.util.HashMap" resultType="java.lang.Integer" >
-    select count(1)
-    from ba_user
-    where 1=1
-    <foreach collection="map.keys" item="_itemKey" open=""  separator="">
-      <if test="null != map[_itemKey]">
-        and ${_itemKey} = #{map[${_itemKey}]}
-      </if>
-    </foreach>
-  </select>
-
-  <select id="getByEmail" resultMap="BaseResultMap">
-    select <include refid="Base_Column_List" />
-    from ba_user
-    where email = #{email}
-  </select>
-  <update id="updateStatusByEmail">
-    update ba_user
-    set  email_status = 1,
-        update_time = sysdate()
-    where email = #{email}
   </update>
 </mapper>

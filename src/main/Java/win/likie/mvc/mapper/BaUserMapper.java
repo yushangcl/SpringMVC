@@ -1,6 +1,5 @@
 package win.likie.mvc.mapper;
 
-
 import win.likie.mvc.dao.IBasicDao;
 import win.likie.mvc.entity.BaUser;
 
@@ -16,8 +15,4 @@ public interface BaUserMapper extends IBasicDao<BaUser> {
     int updateByPrimaryKeySelective(BaUser record);
 
     int updateByPrimaryKey(BaUser record);
-
-    BaUser getByEmail(String email);
-
-    int updateStatusByEmail(String email);
 }

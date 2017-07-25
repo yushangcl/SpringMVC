@@ -6,6 +6,7 @@
 /product
 /web/*
 /src/main/webapp/META-INF/
+/src/main/resources/rebel.xml
 !/web/WEB-INF/web.xml
 !/web/index.html
 

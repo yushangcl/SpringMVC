@@ -135,12 +135,31 @@ public class BaUser {
         this.updateUserId = updateUserId;
     }
 
-
     public Integer getEmailStatus() {
         return emailStatus;
     }
 
     public void setEmailStatus(Integer emailStatus) {
         this.emailStatus = emailStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "BaUser{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", passwordChangeNext=" + passwordChangeNext +
+                ", locked=" + locked +
+                ", lockedDate=" + lockedDate +
+                ", faceUrl='" + faceUrl + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", createUserId=" + createUserId +
+                ", updateUserId=" + updateUserId +
+                ", emailStatus=" + emailStatus +
+                '}';
     }
 }
