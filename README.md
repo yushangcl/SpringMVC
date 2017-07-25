@@ -17,7 +17,12 @@
 ## resource
  #### jdbc-basic.properties 数据库配置文件
  #### log4j2.xml 日志配置文件
- #### spring-config-mvc.xml SpringMVC配置文件
- #### spring-config-mvc-test.xml testSpringMVC配置文件
+ #### spring-mvc.xml 配置文件
+ #### spring-config-context.xml 获取SpringMVC bean
+ #### spring-config-db.xml 数据库
+ #### spring-config-json.xml 防止json错误
+ #### spring-config-service.xml service 扫描
+ #### spring-config-web.xml web文件配置
 ## test:
   #### 单元测试
+  所有test需要继承BaseTest类，实现spring配置

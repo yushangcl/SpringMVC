@@ -1,4 +1,4 @@
-package win.likie.mvc;
+package win.likie.mvc.dubbo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

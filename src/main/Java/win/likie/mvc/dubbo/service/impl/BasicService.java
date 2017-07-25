@@ -1,4 +1,4 @@
-package win.likie.mvc;
+package win.likie.mvc.dubbo.service.impl;
 
 
 import org.slf4j.Logger;

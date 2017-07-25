@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 解决跨域问题
+ * 解决跨域问题 todo 需要在web中配置
  * Created by Wuhuahui on 2016/12/13.
  */
 @Component
