@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by huahui.wu on 2017/7/25.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations ="classpath*:config/spring-config-mvc-test.xml")
+@ContextConfiguration(locations = "classpath*:config/spring-mvc-test.xml")
 public class BaseTest {
 
 }
