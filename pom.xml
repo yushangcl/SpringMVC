@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>win.likie.mvc</groupId>
-  <artifactId>SpringMVC</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>SpringMVC Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>win.likie.mvc</groupId>
+    <artifactId>SpringMVC</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>SpringMVC Maven Webapp</name>
+    <url>http://maven.apache.org</url>
     <properties>
         <log4j.version>1.7.24</log4j.version>
     </properties>
@@ -99,38 +99,52 @@
             <artifactId>druid</artifactId>
             <version>1.0.26</version>
         </dependency>
+        <!--JSTL-->
+        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/taglibs/standard -->
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
 
 
     </dependencies>
-  <build>
-    <finalName>SpringMVC</finalName>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                  <source>1.6</source>
-                  <target>1.6</target>
-              </configuration>
-          </plugin>
-          <plugin>
-              <groupId>org.mybatis.generator</groupId>
-              <artifactId>mybatis-generator-maven-plugin</artifactId>
-              <version>1.3.2</version>
-              <configuration>
-                  <verbose>true</verbose>
-                  <overwrite>true</overwrite>
-              </configuration>
-          </plugin>
-      </plugins>
-      <resources>
-          <resource>
-              <directory>src/main/java</directory>
-              <includes>
-                  <include>**/*.xml</include>
-              </includes>
-              <filtering>true</filtering>
-          </resource>
-      </resources>
-  </build>
+    <build>
+        <finalName>SpringMVC</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+    </build>
 </project>
