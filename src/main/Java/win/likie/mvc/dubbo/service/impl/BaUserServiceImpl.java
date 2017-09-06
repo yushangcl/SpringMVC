@@ -24,6 +24,7 @@ public class BaUserServiceImpl extends BasicService<BaUser> implements BaUserSer
 
     @Override
     public BaUser getUserInfo(Integer userId) {
+        logger.debug("log"+ userId);
         return baUserMapper.selectByPrimaryKey(userId);
     }
 }

@@ -148,6 +148,14 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
-
+        <pluginManagement>
+            <!--配置Jetty-->
+            <plugins>
+                <plugin>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>maven-jetty-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>

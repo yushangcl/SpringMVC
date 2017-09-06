@@ -1,15 +1,19 @@
-/src/main/webapp/META-INF/MANIFEST.MF
-#idea
-#########
-/.idea
-/*.iml
-/product
-/web/*
-/src/main/webapp/META-INF/
-/src/main/resources/rebel.xml
-!/web/WEB-INF/web.xml
-!/web/index.html
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
 
-!/src/main/webapp/WEB-INF/web.xml
-!/src/main/webapp/index.html
-!/src/main/webapp/file/
+# IntelliJ project files
+.idea
+*.iml
+*.log
+out
+gen
+target/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
