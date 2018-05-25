@@ -5,10 +5,10 @@
   <artifactId>SpringMVC</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
+  <name>SpringMVC Maven Webapp</name>
   <url>http://maven.apache.org</url>
     <properties>
         <log4j.version>1.7.24</log4j.version>
-        <spring.version>4.3.0.RELEASE</spring.version>
     </properties>
     <dependencies>
         <dependency>
@@ -21,22 +21,22 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <version>4.3.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
+            <version>4.3.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
+            <version>4.3.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
+            <version>4.3.0.RELEASE</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -99,6 +99,19 @@
             <artifactId>druid</artifactId>
             <version>1.0.26</version>
         </dependency>
+        <!--JSTL-->
+        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/taglibs/standard -->
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
 
 
     </dependencies>
@@ -109,8 +122,8 @@
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
               <configuration>
-                  <source>1.8</source>
-                  <target>1.8</target>
+                  <source>1.6</source>
+                  <target>1.6</target>
               </configuration>
           </plugin>
           <plugin>
@@ -132,5 +145,14 @@
               <filtering>true</filtering>
           </resource>
       </resources>
+      <pluginManagement>
+          <!--配置Jetty-->
+          <plugins>
+              <plugin>
+                  <groupId>org.mortbay.jetty</groupId>
+                  <artifactId>maven-jetty-plugin</artifactId>
+              </plugin>
+          </plugins>
+      </pluginManagement>
   </build>
 </project>
